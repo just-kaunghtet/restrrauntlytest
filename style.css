@@ -507,8 +507,7 @@ h4 {
   padding: 70px 70px 0px 100px;
 }
 .eventContainer {
-  white-space: nowrap;
-  overflow: hidden;
+  display: flex;
 }
 .eventSession.active {
   display: grid;
@@ -625,9 +624,12 @@ h4 {
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.testContainer {
+.testContainer.active {
   display: flex;
   flex-direction: column;
+}
+.testContainer {
+  display: none;
 }
 .quotes {
   font-family: "Playfair Display", serif;
