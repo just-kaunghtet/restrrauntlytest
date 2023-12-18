@@ -675,3 +675,102 @@ h4 {
   color: white;
   margin: 0px 0px 0px 45px;
 }
+.Gallery {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0c0b09;
+  padding: 0;
+  margin: 0;
+}
+.galleryLine {
+  padding: 70px 100px 0px 100px;
+}
+.galleryHeader {
+  color: #cda45e;
+  font-family: "Playfair Display", sans-serif;
+  margin-top: 0;
+  padding: 20px 0px 0px 100px;
+}
+.smallGallery {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.galleryBar {
+  display: inline-block;
+  width: 120px;
+  height: 1px;
+  margin: 4px 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.galleries {
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  overflow: hidden;
+}
+.galleryPic {
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.galleryPic img {
+  width: 100%;
+  height: 100%;
+  transition: transform ease-in-out 0.5s;
+}
+.galleryPic img:hover {
+  transform: scale(1.05);
+}
+.Chefs {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0c0b09;
+  padding: 0;
+  margin: 0;
+}
+.chefContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  padding: 50px 70px 0px 70px;
+}
+.chef {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chef img {
+  width: 400px;
+  height: auto;
+}
+.chefName {
+  font-size: 20px;
+}
+.chefJob {
+  font-size: 14px;
+  font-weight: 200;
+}
+.chefName,
+.chefJob {
+  position: relative;
+  display: none;
+  color: white;
+  margin: 0;
+  transition: display ease-in-out 1s;
+}
+.socials {
+  display: none;
+}
+.chef:hover {
+  cursor: pointer;
+  .chefName,
+  .chefJob,
+  .socials {
+    display: block;
+    transform: translateY(-100px);
+  }
+}
