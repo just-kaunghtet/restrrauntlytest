@@ -1,15 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&family=Playfair+Display:wght@400;500&family=Poppins:wght@400;700&display=swap");
 body {
-  background-blend-mode: darken;
   display: flex;
   flex-direction: column;
   margin: 0;
 }
 .container {
   background-image: url("src/hero-bg.jpg");
-  opacity: 2;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  height: 100vh;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0c0b09; /* Adjust the color to control visibility */
+  opacity: 0.8;
+}
+.containerbox {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
 }
 .topbar {
   display: flex;
@@ -76,6 +90,30 @@ span {
 .click-to-scroll:hover {
   color: #cda45e;
 }
+.dropdownlist {
+  display: none;
+  position: fixed;
+  background-color: white;
+  list-style-type: none;
+  font-size: 15px;
+  padding: 10px;
+}
+.dropdownlist a {
+  color: grey;
+}
+#dpdnbtn:hover {
+  display: block;
+}
+.deepdropdownlist {
+  position: absolute;
+  list-style-type: none;
+  font-size: 15px;
+  padding: 10px;
+  background-color: white;
+}
+.deepdropdownlist a {
+  color: grey;
+}
 .Home {
   display: flex;
   flex-direction: row;
@@ -131,10 +169,25 @@ h2 {
 .About {
   background-image: url(src/about-bg.jpg);
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 75vh;
+  position: relative;
+}
+.About::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0c0b09; /* Adjust the color to control visibility */
+  opacity: 0.8;
+}
+.aboutContents {
+  padding-top: 70px;
+  position: absolute;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  height: 100vh;
 }
 .aboutLeft {
   display: flex;
@@ -185,7 +238,7 @@ h2 {
   display: flex;
   flex-direction: column;
   background: #0c0b09;
-  padding: 50px 100px 0px 100px;
+  padding: 70px 100px 0px 100px;
 }
 .whyLine {
   display: flex;
@@ -261,7 +314,7 @@ h4 {
   display: flex;
   flex-direction: column;
   background-color: #1a1814;
-  padding: 50px 100px 0px 100px;
+  padding: 70px 100px 0px 100px;
 }
 .menuLine {
   display: flex;
@@ -304,13 +357,319 @@ h4 {
 }
 .menu-item:hover {
   color: #cda45e;
+  cursor: pointer;
 }
 .menu-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.menuInfo {
+  display: none;
+}
+.menuInfo.active {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  column-gap: 20px;
+  margin: 15px 0px 15px 0px;
+  align-items: top;
+}
+.dish {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.dishBar {
+  display: inline-block;
+  width: 100%;
+  height: 5px;
+  padding-top: 5px;
+  margin: 4px 10px;
+  border-bottom: 1px dotted #cda45e;
+}
+.dishName {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+.dishName:hover {
+  color: #cda45e;
+  cursor: pointer;
+}
 .dishImg {
   width: 60px;
   border-radius: 35px;
   border: 5px solid rgba(255, 255, 255, 0.2);
+}
+.Specials {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  background: #0c0b09;
+  padding: 70px 100px 0px 100px;
+}
+.specialHeader {
+  color: #cda45e;
+  font-family: "Playfair Display", sans-serif;
+  margin-top: 0;
+}
+.smallSpecial {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.specialBar {
+  display: inline-block;
+  width: 120px;
+  height: 1px;
+  margin: 4px 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.specialSession {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.specialList {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+.specialInfo {
+  display: flex;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  height: 45px;
+  align-items: center;
+  padding-left: 10px;
+  border-right: 2px solid #cda45e;
+}
+.specialInfo:hover {
+  color: #cda45e;
+  cursor: pointer;
+}
+.specialInfo.active {
+  background-color: #cda45e;
+  color: black;
+}
+.specialDisplay {
+  display: flex;
+  flex-direction: row;
+}
+.specialEach {
+  display: none;
+}
+.specialEach.active {
+  display: flex;
+  flex-direction: row;
+}
+.eachHeader {
+  font-family: "Playfair Display", sans-serif;
+  color: white;
+  font-size: 26px;
+  margin: 0px 0px 20px 0px;
+}
+.eachTextone {
+  font-family: "Open-sans", sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #aaaaaa;
+}
+.eachTexttwo {
+  font-family: "Open-sans", sans-serif;
+  font-size: 16px;
+  color: #aaaaaa;
+}
+.specialImg {
+  height: 300px;
+}
+.Events {
+  background-image: url(src/events-bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+.Events::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c0b09; /* Adjust the color to control visibility */
+  opacity: 0.8; /* Adjust the opacity to make it less visible */
+  overflow: hidden;
+}
+.eventContents {
+  position: absolute;
+  padding: 70px 70px 0px 100px;
+}
+.eventContainer {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.eventSession.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: display 1s ease-in;
+}
+.eventSession {
+  display: none;
+}
+.eventImg {
+  width: 95%;
+  height: auto;
+  margin: 0px 12px 0px 12px;
+}
+.eventSessionRight {
+  display: flex;
+  flex-direction: column;
+}
+.eventHeader {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 26px;
+  margin: 0px 0px 18px 0px;
+  color: #cda45e;
+}
+.eventPrice {
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  border-bottom: 2px solid #cda45e;
+}
+.eventDesc {
+  margin: 16px 0px 16px 0px;
+  font-style: italic;
+  color: white;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+.eventDetail {
+  list-style-type: none;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  margin: 16px 0px 16px 0px;
+  padding: 0;
+}
+.detailList {
+  margin: 10px 0px 10px 0px;
+}
+.eventAbt {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+.Booking {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  background: #0c0b09;
+  padding: 70px 100px 0px 100px;
+}
+.bookingForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
+}
+.formAttributes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 12px;
+  column-gap: 12px;
+}
+.formAttributes input {
+  border: 0.8px solid #cda45e;
+  height: 50px;
+  background-color: #0c0b09;
+  color: white;
+  padding-left: 10px;
+}
+.textmessage {
+  background-color: #0c0b09;
+  border: 0.8px solid #cda45e;
+  color: white;
+}
+.bookbtnContainer {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.bookBtn {
+  margin-top: 10px;
+  background-color: #cda45e;
+  color: white;
+  height: 100%;
+  width: 200px;
+  border-radius: 50px;
+  border: 0;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+.bookBtn:hover {
+  cursor: pointer;
+  background-color: #dbb572;
+}
+.Testimonials {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1814;
+  padding: 70px 100px 0px 100px;
+}
+.wholeContainer {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.testContainer {
+  display: flex;
+  flex-direction: column;
+}
+.quotes {
+  font-family: "Playfair Display", serif;
+  font-size: 35px;
+  color: #cda45e;
+  font-weight: 700;
+  font-style: oblique;
+  margin: 0;
+}
+.tests {
+  background-color: #27241e;
+  margin: 0 15px 0 15px;
+  padding: 20px 20px 60px 20px;
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 35px;
+}
+.testers {
+  width: 80px;
+  height: 80px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 45px;
+  position: relative;
+  z-index: 2;
+  margin: -40px 0px 0px 40px;
+  padding: 0;
+}
+.testerName {
+  font-family: "Playfair Display", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  margin: 10px 0px 5px 45px;
+}
+.testerJob {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 14px;
+  color: white;
+  margin: 0px 0px 0px 45px;
 }
